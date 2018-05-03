@@ -9,22 +9,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>${sessionScope.name}'s TODO List</title>
     </head>
-    <body>
-        <div>
-            <h1> Hello ${sessionScope.name} </h1>
-            <h2> Voici votre TODO List personnalisée! </h2>
-            <form id="form" action="todolist" method="POST">
-                <input type="text" name="list">
-                <input type="submit" value="Ajouter">
+    <body id="todolistBody">
+        <div id="inputs">
+            <h1> Welcome <span id="username">${sessionScope.name}</span>!</h1>
+            <h2>
+                Here is your private TO DO LIST!<br>
+                Feel free to add any sort of task to it.
+            </h2>
+            <form id="form2" action="todolist" method="POST">
+                <input id="textFld" autofocus type="text" name="list">
+                <input id="addBtn" type="submit" value="ADD">
             </form>
         </div>
         <ul>
+        <li id="todolistTitle">TO DO:</li>
             <c:forEach items="${sessionScope.list}" var="element">
-                <li>${element}</li>
+                <li><input type="checkbox">${element}</li>
             </c:forEach>
         </ul>
     </body>

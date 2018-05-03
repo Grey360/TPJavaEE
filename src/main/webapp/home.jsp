@@ -8,14 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Home Page</title>
     </head>
-    <body>
-        <form action="todolist" method="POST">
-            <input name="name" placeholder="Your username...">
-            <input type="submit" value="Se présenter">
+    <body id="homeBody">
+        <form id="form1" action="todolist" method="POST">
+            <input id="homeInput" autofocus name="name" placeholder="Username...">
+            <input id="homeBtn" type="submit" value="Check in">
         </form>
     </body>
 </html>

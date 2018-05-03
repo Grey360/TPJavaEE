@@ -30,7 +30,101 @@ THE SOFTWARE.
 html, body {
     height: 100%;
     width: 100%;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+body {
+    background: url(2.jpg) no-repeat;
+    background-size: cover;
+}
+
+#todolistBody {
+    background: url(8.jpg) no-repeat;
+    background-size: cover;
+    align-items: stretch;
+}
+
+#form1>input, #form2, #form2>input, ul>li, h1, h2 {
+    font-family: 'Gugi', cursive;
+}
+
+h1, h2 {
+    color: white;
+}
+
+#username {
+    color: gold;
+}
+
+#form1 {
+    height: 50%;
+    display:  flex;
+    flex-direction:  column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#form2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#inputs, ul {
+    width: 45%;
+    display:flex;
+    flex-direction:column;
+    justify-content: stretch;
+    overflow-y: auto;
+}
+
+ul>li {
+    color: white;
+    border: 2px solid grey;
+    background: purple;
+    padding: 1%;
+    word-wrap: break-word;
+    border-radius: 1em;
+}
+
+#todolistTitle {
+    color: black;
+    background: gold;
+    font-size: 25px;
+    text-align:  center;
+}
+
+#textFld {
+    border: 3px solid gray;
+    border-radius: 1em;
+    background: white;
+    width: 60%;
+    padding: 2%;
+    color:  purple;
+}
+
+#addBtn {
+   border-radius: 1em;
+   background:  gold;
+   padding: 2%;
+   color: black;
+   width: 15%;
+}
+
+#homeInput {
+    height: 10%;
+    border-radius: 1em;
+    padding: 4%;
+ }
+
+#homeBtn {
+    border-radius: 1em;
+    background:  gold;
+    padding: 10%;
+    color: black;
+    width: 50%;
 }

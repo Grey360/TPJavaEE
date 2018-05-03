@@ -24,7 +24,6 @@
 package com.gailor.tpjavaee.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.servlet.ServletException;
