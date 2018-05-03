@@ -1,2 +1,2 @@
-com\gailor\tpjavaee\servlet\ListServlet.class
-com\gailor\tpjavaee\servlet\ControllerServlet.class
+com\gailor\tpjavaee\servlet\TodoListServlet.class
+com\gailor\tpjavaee\servlet\HomeServlet.class

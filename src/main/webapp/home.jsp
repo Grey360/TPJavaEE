@@ -1,6 +1,6 @@
 <%-- 
-    Document   : home
-    Created on : 2 mai 2018, 15:09:11
+    Document   : newjsp
+    Created on : 2 mai 2018, 14:26:39
     Author     : gpetemoy
 --%>
 
@@ -13,14 +13,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1> Hello ${sessionScope.name} </h1>
-        <h2> Voici votre TODO List personnalisée! </h2>
-        <form action="list" method="POST">
-            <input type="text" name="list">
-            <input type="submit" value="Ajouter">
+        <form action="todolist" method="POST">
+            <input name="name" placeholder="Your username...">
+            <input type="submit" value="Se présenter">
         </form>
-        <ul>
-            ${sessionScope.list}
-        </ul>
     </body>
 </html>

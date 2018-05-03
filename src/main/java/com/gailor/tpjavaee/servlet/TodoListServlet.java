@@ -37,12 +37,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author gpetemoy
  */
-@WebServlet(name = "ListServlet", urlPatterns = {"/list"})
-public class ListServlet extends HttpServlet {
+@WebServlet(name = "TodoListServlet", urlPatterns = {"/todolist"})
+public class TodoListServlet extends HttpServlet {
 
-    private final HashMap<String, String> names = new HashMap();
-    private final HashMap<String, StringBuilder> list = new HashMap();
-    
+    private final HashMap<String, ArrayList<String>> list = new HashMap();
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -54,7 +53,7 @@ public class ListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath() + "/introduce");
+        response.sendRedirect(request.getContextPath() + "/home");
     }
 
     /**
@@ -68,34 +67,35 @@ public class ListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        // On attrape les paramètres de session.
+
+        // On attrape le paramètre de session "name".
         String name = request.getParameter("name");
-        StringBuilder requestList = new StringBuilder(request.getParameter("list"));
-        
-         // Si  nous avons affaire à la requête d'entrée, on set l'attribut "name".
-        if(name != null){
+
+        // Si  nous avons affaire à la requête d'entrée, on set l'attribut "name".
+        if (name != null) {
             request.getSession().setAttribute("name", name);
         } else {
             name = request.getSession().getAttribute("name").toString();
         }
-        
-        // On ajoute l'utilisateur à notre liste
-        this.names.put(name, "");
-        // On manipule notre liste de StringBuilder
-        if(this.list.containsKey(name)){
+
+        // On manipule notre liste de String
+        if (this.list.containsKey(name)) {
             // Soit l'objet existe déjà et on ajoute à la liste préexistante.
-            StringBuilder newElement = requestList.insert(0, "<li>").append("</li>");
-            this.list.put(name, this.list.get(name).append(newElement));
+            String reqList = request.getParameter("list");
+            if (reqList != null) {
+                if (reqList.length() > 0) {
+                    this.list.get(name).add(request.getParameter("list"));
+                }
+            }
         } else {
-            // Sinon on crée l'objet avec la nouvelle chaîne de caractère.
-            this.list.put(name, requestList.insert(0, "<li>").append("</li>"));
+            // Sinon on crée l'objet de liste avec le nouveau nom.
+            this.list.put(name, new ArrayList<String>());
         }
 
         // On set l'attribut "list" selon l'utilisateur en cours.
-        request.getSession().setAttribute( "list", this.list.get(name) );
-        
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.getSession().setAttribute("list", this.list.get(name));
+
+        request.getRequestDispatcher("todolist.jsp").forward(request, response);
     }
 
     /**
