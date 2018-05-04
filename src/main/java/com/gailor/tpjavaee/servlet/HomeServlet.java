@@ -71,7 +71,7 @@ public class HomeServlet extends HttpServlet {
             request.getSession().setAttribute("name", request.getParameter("name"));
 
             // On transfère le traitement vers la page "home.jsp".
-            request.getRequestDispatcher("/todolist.jsp").forward(request, response);
+            request.getRequestDispatcher("todolist.jsp").forward(request, response);
         } else {
             response.sendRedirect(request.getContextPath());
         }
