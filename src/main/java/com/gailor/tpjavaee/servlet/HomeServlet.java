@@ -49,7 +49,8 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // En cas de requête GET, nous affichons la page "introduction.jsp".        
-        response.sendRedirect(request.getContextPath() + "/home.jsp");
+        // response.sendRedirect(request.getContextPath() + "/home.jsp");
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     /**
@@ -70,9 +71,9 @@ public class HomeServlet extends HttpServlet {
             request.getSession().setAttribute("name", request.getParameter("name"));
 
             // On transfère le traitement vers la page "home.jsp".
-            request.getRequestDispatcher("todolist.jsp").forward(request, response);
+            request.getRequestDispatcher("/todolist.jsp").forward(request, response);
         } else {
-            response.sendRedirect(request.getContextPath() + "/home");
+            response.sendRedirect(request.getContextPath());
         }
     }
 

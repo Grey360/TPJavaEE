@@ -9,8 +9,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="./style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${sessionScope.name}'s TODO List</title>
     </head>
