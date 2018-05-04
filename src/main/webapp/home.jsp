@@ -14,7 +14,7 @@
         <title>Home Page</title>
     </head>
     <body id="homeBody">
-        <form id="form1" action="home" method="POST">
+        <form id="form1" action="todolist" method="POST">
             <input id="homeInput" autofocus name="name" placeholder="Username...">
             <input id="homeBtn" type="submit" value="Check in">
         </form>
