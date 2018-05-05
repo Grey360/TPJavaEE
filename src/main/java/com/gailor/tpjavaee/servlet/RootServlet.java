@@ -34,9 +34,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author gpetemoy
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "RootServlet", urlPatterns = {"/"})
+public class RootServlet extends HttpServlet {
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -48,8 +49,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // En cas de requête GET, nous affichons la page "home.jsp".        
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        response.sendRedirect(request.getContextPath() + "/home");
     }
 
     /**
@@ -63,17 +63,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // On attrape le paramètre "name" du formulaire après une requête POST
-        // s'il n'est pas vide, sinon on retourne notre page d'accueil.
-        if (!request.getParameter("name").isEmpty()) {
-
-            request.getSession().setAttribute("name", request.getParameter("name"));
-
-            // On transfère le traitement vers la page "todolist.jsp".
-            request.getRequestDispatcher("todolist.jsp").forward(request, response);
-        } else {
-            response.sendRedirect(request.getContextPath());
-        }
+        response.sendRedirect(request.getContextPath() + "/home");
     }
 
     /**

@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" type="image/png" href="world-wide-web.png">
         <title>Home Page</title>
     </head>
     <body id="homeBody">
