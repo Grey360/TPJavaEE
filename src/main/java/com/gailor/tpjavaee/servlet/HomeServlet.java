@@ -48,7 +48,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // En cas de requête GET, nous affichons la page "home.jsp".        
+        // Home page redirect.   
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
@@ -63,17 +63,8 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // On attrape le paramètre "name" du formulaire après une requête POST
-        // s'il n'est pas vide, sinon on retourne notre page d'accueil.
-        if (!request.getParameter("name").isEmpty()) {
-
-            request.getSession().setAttribute("name", request.getParameter("name"));
-
-            // On transfère le traitement vers la page "todolist.jsp".
-            request.getRequestDispatcher("todolist.jsp").forward(request, response);
-        } else {
-            response.sendRedirect(request.getContextPath());
-        }
+        // Home page redirect. 
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     /**

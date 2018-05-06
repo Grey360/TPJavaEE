@@ -37,7 +37,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "RootServlet", urlPatterns = {"/"})
 public class RootServlet extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -49,6 +48,7 @@ public class RootServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Home page redirect. 
         response.sendRedirect(request.getContextPath() + "/home");
     }
 
@@ -63,6 +63,7 @@ public class RootServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Home page redirect. 
         response.sendRedirect(request.getContextPath() + "/home");
     }
 
@@ -74,6 +75,6 @@ public class RootServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

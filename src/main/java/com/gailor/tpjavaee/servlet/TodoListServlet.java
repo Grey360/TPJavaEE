@@ -67,19 +67,14 @@ public class TodoListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // On attrape le paramètre de session "name".
+        // We catch the "name" parameter from our forms.
         String name = request.getParameter("name");
-
-        // Si  nous avons affaire à la requête d'entrée, on set l'attribut "name".
-        if (name != null) {
-            request.getSession().setAttribute("name", name);
-        } else {
-            name = request.getSession().getAttribute("name").toString();
-        }
-
-        // On manipule notre liste de String
+        
+        // We set the "name" attribute.
+        request.setAttribute("name", name);      
+        
+        // We add the new String to the matching user's list
         if (this.list.containsKey(name)) {
-            // Soit l'objet existe déjà et on ajoute à la liste préexistante.
             String reqList = request.getParameter("list");
             if (reqList != null) {
                 if (reqList.length() > 0) {
@@ -87,12 +82,12 @@ public class TodoListServlet extends HttpServlet {
                 }
             }
         } else {
-            // Sinon on crée l'objet de liste avec le nouveau nom.
+            // Else, we create a new list for the new user.
             this.list.put(name, new ArrayList<String>());
         }
 
-        // On set l'attribut "list" selon l'utilisateur en cours.
-        request.getSession().setAttribute("list", this.list.get(name));
+        // We set the "list" attribute for the request dispatching with JLTS.
+        request.setAttribute("list", this.list.get(name));
 
         request.getRequestDispatcher("todolist.jsp").forward(request, response);
     }
@@ -105,6 +100,6 @@ public class TodoListServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }
